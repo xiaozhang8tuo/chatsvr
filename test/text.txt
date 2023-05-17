@@ -1,0 +1,10 @@
+// 登录
+{"msgid":1,"name":"zhm","password":"123","id":24}
+{"msgid":1,"name":"zyx","password":"123","id":22}
+
+// 注册
+{"msgid":4,"name":"zhm","password":"123"}
+{"msgid":4,"name":"zyx","password":"123"}
+
+// 聊天
+{"msgid":6,"toid":24,"fromid":22,"msg":"hello"}
