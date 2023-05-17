@@ -26,11 +26,11 @@ DROP TABLE IF EXISTS `allgroup`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `allgroup` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `groupname` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `groupdesc` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT '',
+  `groupname` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `groupdesc` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `groupname` (`groupname`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `groupuser` (
   `groupid` int NOT NULL,
   `userid` int NOT NULL,
   `grouprole` enum('creator','normal') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  KEY `groupid` (`groupid`,`userid`)
+  PRIMARY KEY (`groupid`,`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -72,7 +72,7 @@ DROP TABLE IF EXISTS `offlinemessage`;
 CREATE TABLE `offlinemessage` (
   `userid` int NOT NULL,
   `message` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,10 +86,10 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
-  `state` enum('online','offline') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT 'offline',
+  `state` enum('online','offline') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT 'offline',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -101,4 +101,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-14 22:58:16
+-- Dump completed on 2023-05-17  3:18:08

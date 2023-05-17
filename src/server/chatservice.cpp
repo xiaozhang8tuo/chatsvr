@@ -31,6 +31,25 @@ ChatService::ChatService()
 
 }
 
+void ChatService::reset()
+{
+    // 把online状态的用户，设置成offline
+    //_userModel.resetState();
+
+    for (auto pair : _userConnMap)
+    {
+        User user;
+        user.setId(pair.first);
+
+        // 更新用户的状态信息
+        if (user.getId() != -1)
+        {
+            user.setState("offline");
+            _userModel.updateState(user);
+        }
+    }
+}
+
 
 void ChatService::clientCloseException(const TcpConnectionPtr &conn)
 {
@@ -94,6 +113,9 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
             _userConnMap.insert({id, conn});
         }
 
+        user.setState("online");
+        _userModel.updateState(user);
+
         json response;
         response["msgid"] = LOGIN_MSG_ACK;
         response["errno"] = 0;
@@ -153,9 +175,6 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
 
             response["groups"] = groupV;
         }
-
-        user.setState("online");
-        _userModel.updateState(user);
 
         conn->send(response.dump());
         return;

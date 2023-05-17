@@ -8,3 +8,9 @@
 
 // 聊天
 {"msgid":6,"toid":24,"fromid":22,"msg":"hello"}
+
+//查看表和库的编码结构/修改
+https://www.jianshu.com/p/a18269a4870e
+
+// 修改表的字段编码utf-8
+alter table user change name name varchar(50) character set utf8;

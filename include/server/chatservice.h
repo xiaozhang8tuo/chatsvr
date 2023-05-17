@@ -49,6 +49,8 @@ public:
 
     // 获取消息对应的处理器
     MsgHandler getHandler(int msgid);
+    // 服务器异常，业务重置方法
+    void reset();
 
 private:
     ChatService();

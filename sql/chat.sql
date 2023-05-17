@@ -78,7 +78,7 @@ CREATE TABLE `groupuser` (
   `groupid` int NOT NULL,
   `userid` int NOT NULL,
   `grouprole` enum('creator','normal') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  KEY `groupid` (`groupid`,`userid`)
+  PRIMARY KEY `groupid` (`groupid`,`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
