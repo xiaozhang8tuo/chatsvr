@@ -1,6 +1,6 @@
 #include "db.h"
 #include <muduo/base/Logging.h>
-
+#include <hiredis/hiredis.h>
 // 数据库配置信息
 static string server = "127.0.0.1";
 static string user = "root";
